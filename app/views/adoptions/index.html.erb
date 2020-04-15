@@ -1,0 +1,17 @@
+<h1>Applications History</h1>
+
+
+<% @sorted_dogs.each do |adoption| %>
+    <ul>
+        <li><%= link_to "Application Number: #{adoption.id}", animal_adoption_path(adoption.animal, adoption) %> - 
+        <%= link_to adoption.animal.name, animal_path(adoption.animal) %> - <%= link_to adoption.user.name, user_path(adoption.user) %> - <%= adoption.status %></li>
+    </ul>
+<% end %>
+
+<!-- 
+t.integer "animal_id"
+t.integer "user_id"
+t.string "status", default: "Pending"
+t.text "reason", default: "Because I love them"
+t.datetime "created_at", precision: 6, null: false
+t.datetime "updated_at", precision: 6, null: false -->

@@ -1,9 +1,16 @@
 <h1>About <%= @animal.name %></h1>
 
-   <ul>
+     <ul>
         <li><h3>Breed: <%= @animal.breed%></h3></li>
          <li><h3>Age: <%= @animal.age %></h3></li>
          <li><h3>Bio: <%= @animal.bio %> </h3></li>        
-    </ul>
+     </ul>
+     <% if @animal.adopted == true %>
+          <%= "Was adopted by:" %>
+          <% owner = @animal.adoptions.where(status: "Approved").pluck(:user_id).join().to_i %>
+          <%= User.find(owner).name %>
+     <% else %>
+          <%= link_to "Adopt this Animal", new_animal_adoption_path(@animal)  %>
+     <% end %>
 
-    <%= link_to "Adopt this Animal", new_animal_adoption_path(@animal)  %>
+   

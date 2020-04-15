@@ -1,7 +1,20 @@
 <h1>All our Animals</h1>
+<h2>Animals Available for Adoption</h2>
+
 <ul>
-<% @animals.each do |animal| %>
+<% Animal.not_adopted.each do |animal| %>
     <li>Name: <%=link_to animal.name, animal_path(animal) %> - Breed: <%= animal.breed %> - Bio: <%= animal.bio %> - Age: <%= animal.age %></li>
 <% end %>
 </ul>
+
+<br>
+<br>
+<h2>Animals Happily Adopted</h2>
+<ul>
+    <% Animal.adopted.each do |animal| %>
+    <li>Name: <%=link_to animal.name, animal_path(animal) %> - Breed: <%= animal.breed %> - Bio: <%= animal.bio %> - Age: <%= animal.age %></li>
+
+    <% end %>
+</ul>
+
 

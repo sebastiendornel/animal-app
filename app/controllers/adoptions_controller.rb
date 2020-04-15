@@ -1,5 +1,13 @@
 class AdoptionsController < ApplicationController
 
+    def index
+        @adoptions = Adoption.all
+        @sorted_status = @adoptions.order(:status)
+        @sorted_dogs = @adoptions.order(:animal_id)
+        # @categories = Category.order(:name)
+
+    end
+
     def new
         @adoption = Adoption.new
         @animal = Animal.find(params[:animal_id])

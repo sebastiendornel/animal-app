@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :users
+  get '/adoptions', to: 'adoptions#index'
   resources :animals do
       resources :adoptions
   end

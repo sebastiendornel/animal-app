@@ -21,7 +21,10 @@ a2 = Animal.create(name: 'Sparky', breed: 'Pincher', bio: 'Last Owner Passed Awa
 a3 = Animal.create(name: 'Luna', breed: 'Maltese', bio: 'Found on the Street', age: 4 , shelter_id: shelter1.id)
 a4 = Animal.create(name: 'Fido', breed: 'Italian', bio: 'Kept waiting for his owner', age: 8 , shelter_id: shelter1.id)
 
-ad1 = Adoption.create(animal_id: a1.id, user_id: u3.id, reason: 'Felt Identified with her story')
+ad1 = Adoption.create(animal_id: a1.id, user_id: u3.id, reason: 'Felt Identified with her story', status: "Approved")
+ad1a = Adoption.create(animal_id: a1.id, user_id: u2.id, reason: 'Felt Identified with her story')
+ad1b = Adoption.create(animal_id: a1.id, user_id: u1.id, reason: 'Felt Identified with her story')
+
 ad2 = Adoption.create(animal_id: a2.id, user_id: u2.id, reason: 'We have a beautiful yard he can enjoy')
 ad3 = Adoption.create(animal_id: a3.id, user_id: u2.id, reason: 'Our other animals would love to have her join the family', status: "Denied")
 ad4 = Adoption.create(animal_id: a3.id, user_id: u1.id, reason: 'I just love Animals', status: "Approved")

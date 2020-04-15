@@ -6,6 +6,8 @@
 <h3></h3> The adoption application status is: <%= @adoption.status %></h3>
 <br>
 <br>
-<%= link_to "View all Animals", animals_path %> 
-<%= link_to "Cancel your adoption process", animal_adoption_path(@adoption.animal, @adoption), :method => :delete, data: {confirm: "Are you sure?"} %>
+<%= link_to "View all Animals", animals_path %>
+<br>
+For visitors: <%= link_to "Cancel your adoption process", animal_adoption_path(@adoption.animal, @adoption), :method => :delete, data: {confirm: "Are you sure?"} %>
+<br>
 
