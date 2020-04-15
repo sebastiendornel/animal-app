@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
     # build out users X
     #   create/show/update/delete user X
-    # validations
+    # validations DONE for user and adoption
     # add methods in models (animal average age, most common breed)
     # if animal approved, have conditional on show page saying "live happily with: "
     # index shows all animals. sort animals by adoption status
