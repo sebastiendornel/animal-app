@@ -1,6 +1,7 @@
-# class SheltersController < ApplicationController
+class SheltersController < ApplicationController
 
-#     def index
-#     end    
+    def index
 
-# end
+    end    
+
+end

@@ -5,7 +5,7 @@ class CreateAnimals < ActiveRecord::Migration[6.0]
       t.string :breed
       t.string :bio
       t.integer :age
-      # t.integer :shelter_id
+      t.integer :shelter_id
 
       t.timestamps
     end

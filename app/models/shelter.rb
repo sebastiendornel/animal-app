@@ -1,5 +1,5 @@
-# class Shelter < ApplicationRecord
-#     has_many :animals
+class Shelter < ApplicationRecord
+    has_many :animals
 
-# end
+end
 

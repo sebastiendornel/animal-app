@@ -19,11 +19,22 @@ class AdoptionsController < ApplicationController
         @adoption = Adoption.find(params[:id])
     end
     
-    private
-
-    def adoption_params
-        params.require(:adoption).permit(:animal_id, :user_id, :reason)
+    def edit
+        @adoption = Adoption.find(params[:id])
     end
+  
+    def update
+        @adoption.update(user_id: params[:adoption][:user_id], animal_id: params[:animal_id], reason: params[:adoption][:reason])
+        @animal = Animal.find(params[:animal_id])
+        redirect_to animal_adoption_path(@animal, @adoption)
+    end
+
+    def destroy
+        @adoption = Adoption.find(params[:id])
+        @adoption.destroy 
+        redirect_to shelters_path
+    end
+
     # t.integer "animal_id"
     # t.integer "user_id"
     # t.string "status", default: "Pending"
