@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2020_04_15_022248) do
     t.string "bio"
     t.integer "age"
     t.integer "shelter_id"
+    t.boolean "adopted", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

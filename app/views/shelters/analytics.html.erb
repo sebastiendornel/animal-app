@@ -1,0 +1,43 @@
+<h1>Shelter Analytics Page</h1>
+
+<h2>Approved Adoptions!</h2>
+    <h3>Happy Parents:</h3>
+    <ul>
+        <% Adoption.approved.each do |name| %>
+        <li><%= name %></li>
+        <% end %>
+    </ul>
+
+<h2>Pending Adoptions: </h2>
+    <h3>Names:</h3>
+    <ul>
+        <% Adoption.pending.each do |name| %>
+        <li><%= name%></li>
+        <% end %>
+    </ul>
+
+
+<h2>Denied Adoptions: </h2>
+    <h3>Names:</h3>
+    <ul>
+        <% Adoption.denied.each do |name| %>
+        <li><%= name %></li>
+        <% end %>
+    </ul>
+<br>
+<br>
+<h2>User Data</h2>
+    <h3>Average User Age</h3>
+    <%= User.average_user_age %>
+    
+    <h3>Number of Users</h3>
+            <%= User.user_count %>
+    <h3>Average Number of Pets a User has</h3>
+            <%= User.average_pet_count_of_users %>
+    <h3>Youngest User</h3>
+            <%= User.youngest %>
+    <h3>Oldest User</h3>
+            <%= User.oldest %>
+    <h3>Most Pets</h3>
+            <%= User.most_pets %>
+            

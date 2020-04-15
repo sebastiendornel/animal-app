@@ -38,11 +38,6 @@ class AdoptionsController < ApplicationController
         redirect_to shelters_path
     end
 
-    # t.integer "animal_id"
-    # t.integer "user_id"
-    # t.string "status", default: "Pending"
-    # t.text "reason", default: "Because I love them"
-    # t.datetime "created_at", precision: 6, null: false
-    # t.datetime "updated_at", precision: 6, null: false
+    
     
 end

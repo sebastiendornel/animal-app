@@ -14,16 +14,19 @@ u1 = User.create(name: 'Carla', age: 23, address: "Burke, Virginia", pet_qty:3 ,
 u2 = User.create(name: 'Sebastien', age: 18, address: "DC", pet_qty: 3 , bio: "Adventurer")
 u3 = User.create(name: 'Mary', age: 22, address: "Washington, DC")
 
-shelter1 = Shelter.create()
+shelter1 = Shelter.create
 
-a1 = Animal.create(name: 'Lucy', breed: 'Chihuahua', bio: 'Found as a baby', age: 3, shelter_id: shelter1.id )
+a1 = Animal.create(name: 'Lucy', breed: 'Chihuahua', bio: 'Found as a baby', age: 3, shelter_id: shelter1.id, adopted: true)
 a2 = Animal.create(name: 'Sparky', breed: 'Pincher', bio: 'Last Owner Passed Away', age: 7, shelter_id: shelter1.id)
 a3 = Animal.create(name: 'Luna', breed: 'Maltese', bio: 'Found on the Street', age: 4 , shelter_id: shelter1.id)
 a4 = Animal.create(name: 'Fido', breed: 'Italian', bio: 'Kept waiting for his owner', age: 8 , shelter_id: shelter1.id)
 
-ad1 = Adoption.create(animal_id: a1.id, user_id: u3.id , reason: 'Felt Identified with her story')
+ad1 = Adoption.create(animal_id: a1.id, user_id: u3.id, reason: 'Felt Identified with her story')
 ad2 = Adoption.create(animal_id: a2.id, user_id: u2.id, reason: 'We have a beautiful yard he can enjoy')
-ad3 = Adoption.create(animal_id: a3.id, user_id: u2.id, reason: 'Our other animals would love to have her join the family')
+ad3 = Adoption.create(animal_id: a3.id, user_id: u2.id, reason: 'Our other animals would love to have her join the family', status: "Denied")
+ad4 = Adoption.create(animal_id: a3.id, user_id: u1.id, reason: 'I just love Animals', status: "Approved")
+ad5 = Adoption.create(animal_id: a2.id, user_id: u3.id, reason: 'Our other animals would love to have her join the family', status: "Approved")
+
 
 # Animal.destroy_all
 # Shelter.destroy_all

@@ -6,7 +6,7 @@ class CreateAnimals < ActiveRecord::Migration[6.0]
       t.string :bio
       t.integer :age
       t.integer :shelter_id
-
+      t.boolean :adopted, :default => false
       t.timestamps
     end
   end

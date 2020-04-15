@@ -29,9 +29,15 @@ class User < ApplicationRecord
     end
 
     def self.most_pets
-        name = self.all.max_by{|u| u.pet_qty}.name
+        # name = self.all.max_by{|u| u.pet_qty}.name
         pet_count = self.all.max_by{|u| u.pet_qty}.pet_qty
-        "The person with the most pet(s) is #{name} with #{pet_count} pets."
+        people = self.all.select{|x| x.pet_qty == pet_count}
+        name = people.map{|x| x.name}.join(" ")
+        if people.length == 1
+            return "The person with the most pet(s) is #{name} with #{pet_count} pets."
+        else
+            return "The people with the most pet(s) are #{name} with #{pet_count} pets."
+        end
     end
 
 end

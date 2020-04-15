@@ -5,7 +5,7 @@ class CreateAdoptions < ActiveRecord::Migration[6.0]
       t.integer :user_id
       t.string :status, :default => "Pending"
       t.text :reason, :default => "Because I love them"
-
+      
       t.timestamps
     end
   end
