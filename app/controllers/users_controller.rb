@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-    # build out users
-    #   create/show/update/delete user
+    # build out users X
+    #   create/show/update/delete user X
     # validations
     # add methods in models (animal average age, most common breed)
     # if animal approved, have conditional on show page saying "live happily with: "
@@ -20,8 +20,12 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
-        @user.save
-        redirect_to user_path(@user)
+        if @user.valid?
+            @user.save
+            redirect_to user_path(@user)
+        else
+            render :new
+        end
     end
 
     def edit
