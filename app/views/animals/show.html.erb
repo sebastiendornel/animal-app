@@ -1,0 +1,9 @@
+<h1>About <%= @animal.name %></h1>
+
+   <ul>
+        <li><h3>Breed: <%= @animal.breed%></h3></li>
+         <li><h3>Age: <%= @animal.age %></h3></li>
+         <li><h3>Bio: <%= @animal.bio %> </h3></li>        
+    </ul>
+
+    <%= link_to "Adopt this Animal", new_animal_adoption_path(@animal)  %>
