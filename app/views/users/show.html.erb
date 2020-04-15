@@ -1,0 +1,12 @@
+<h1>Your Profile</h1>
+
+Name: <%= @user.name %><br>
+Age: <%= @user.age %><br>
+Address: <%= @user.address %><br>
+Number of pets: <%= @user.pet_qty %><br>
+<br><br>
+Bio: <%= @user.bio %>
+<br>
+<br>
+<%= link_to "Edit Your Profile", edit_user_path(@user) %> - 
+<%= link_to "Delete Your Profile", user_path(@user), :method => :delete, data: {confirm: "Are you sure?"} %>

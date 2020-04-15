@@ -1,0 +1,18 @@
+<h1>Create A New User</h1>
+<br>
+<%= form_for @user do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.label :age %>
+<%= f.text_field :age %>
+<%= f.label :address %>
+<%= f.text_field :address %>
+<%= f.label :pet_qty %>
+<%= f.select :pet_qty, (0..5) %>
+<%= f.label :bio %>
+<%= f.text_area :bio %>
+<%= f.submit "Create User"%>
+<% end %>
+
+
+
