@@ -18,7 +18,6 @@ class AdoptionsController < ApplicationController
         # byebug
         @adoption = Adoption.new(user_id: params[:adoption][:user_id], animal_id: params[:animal_id], reason: params[:adoption][:reason])
         @animal = Animal.find(params[:animal_id])
-        
         if @adoption.valid?
             @adoption.save 
             redirect_to animal_adoption_path(@animal, @adoption)
@@ -42,9 +41,8 @@ class AdoptionsController < ApplicationController
             @adoption.save 
             redirect_to animal_adoption_path(@animal, @adoption)
         else
-            # render :new
-            # puts "hiHIHIHIHIHIHIHIHIHIHIHIHIHHIHIHIHIHIHIHI"
-            render :index
+            render :edit
+            # render :index
        end
     end
 
