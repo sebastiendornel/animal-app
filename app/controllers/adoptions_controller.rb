@@ -34,10 +34,17 @@ class AdoptionsController < ApplicationController
         @adoption = Adoption.find(params[:id])
     end
   
-    def update
+    def update #use strong params here? / , status: params[:adoption][:status]
         @adoption.update(user_id: params[:adoption][:user_id], animal_id: params[:animal_id], reason: params[:adoption][:reason])
         @animal = Animal.find(params[:animal_id])
-        redirect_to animal_adoption_path(@animal, @adoption)
+        if @adoption.valid?
+            @adoption.save 
+            redirect_to animal_adoption_path(@animal, @adoption)
+        else
+            # render :new
+            # puts "hiHIHIHIHIHIHIHIHIHIHIHIHIHHIHIHIHIHIHIHI"
+            render :index
+       end
     end
 
     def destroy
@@ -48,17 +55,35 @@ class AdoptionsController < ApplicationController
 
     def approve
         @adoption = Adoption.find(params[:id])
-        # if @adoption.valid?
-            @adoption.status = params[:adoption][:status]
-            @adoption.save
-            animal_id = @adoption.animal_id
-            @animal = Animal.find(animal_id)
-            if @animal.adopted == false
-                @animal.adopted = true
-            else    
-                @animal.adopted = false
-            end
+        @adoption.status = params[:adoption][:status]
+        @adoption.save
+
+        if @adoption.status == "Approved"
+            @animal = @adoption.animal
+            @animal.adopted = true
             @animal.save
+            @animal.set_others_to_denied
+            # byebug
+            @animal.adoptions.each{|adoption| adoption.save}
+        # elsif @adoption.status == "Denied"
+
+        end
+        # change one status first, then update all other statuses after
+        # animal.adoptions.map{|x| x.status}.length
+        # if length is greater than 1
+        #   set_others_to_denied
+        # else
+        #   run through below logic??
+        # if @adoption.valid?
+           
+            # call deny method on animal instance
+            # if approved, make adopted. if denied, make adopted
+            # if @animal.adopted == false
+            #     @animal.adopted = true
+            # else    
+            #     @animal.adopted = false
+            # end
+            # @animal.save
             redirect_to adoptions_path
         # else
         #     redirect_to animal_adoption_path(@animal, @adoption)

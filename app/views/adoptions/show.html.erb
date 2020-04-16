@@ -1,20 +1,19 @@
-<h1>Adoption Confirmation</h1>
-
-<h3>Thank you for applying to adopt <%= link_to @adoption.animal.name, animal_path(@adoption.animal) %></h3>
-<h3>Your reason for adopting a pet from our shelter: </h3>
-<%= @adoption.reason %>
-<h3></h3> The adoption application status is: <%= @adoption.status %></h3>
+<h1>Adoption Confirmation Page for <%= link_to @adoption.animal.name, animal_path(@adoption.animal) %></h1>
 <br>
+<h3>Adoption Applicant: <%= link_to @adoption.user.name, user_path(@adoption.user)  %></h3>
+
+<h3>Applicant Reason for Adopting <%= link_to @adoption.animal.name%>: </h3>
+<p><%= @adoption.reason %></p>
+<h3> This adoption application status is: <%= @adoption.status %></h3>
 <%= render partial: "shared/errors", locals: {new_object: @adoption} %>
 <br>
-<%= link_to "View all Animals", animals_path %>
-<br>
-For visitors: <%= link_to "Cancel your adoption process", animal_adoption_path(@adoption.animal, @adoption), :method => :delete, data: {confirm: "Are you sure?"} %>
-<br>
-For employees:
 
+<br>
 
-    <form action="/adoptions_approve/<%= @adoption.id %>" method="POST">
+<br>
+<% if @adoption.animal.adopted == false %>
+    <form action="/adoptions_approve/<%= @adoption.id %>" method="POST"> <!--try using route helper-->
+
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
         <select name='adoption[status]'>
             <option value="Approved">Approved</option>
@@ -23,5 +22,10 @@ For employees:
         </select>
         <input type="submit" value="Submit">
     </form>
-  
-<%= link_to "View All Adoptions", adoptions_path %> 
+<% else %>
+    <%= "You have already approved #{@adoption.user.name} to adopt #{@adoption.animal.name}." %>
+    <br>
+    <%= link_to "Edit this Adoption Application", edit_animal_adoption_path(@adoption.animal)%>
+    <br>
+    <%= link_to "Cancel this Adoption Application", animal_adoption_path(@adoption.animal, @adoption), :method => :delete, data: {confirm: "Are you sure?"} %>
+<% end %>

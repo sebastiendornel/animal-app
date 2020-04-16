@@ -1,14 +1,30 @@
-<h1>Edit this Adoption Form</h1>
+<h1>Edit this Adoption Application Form</h1>
 
 <%= form_for @adoption, :url => animal_adoptions_path, :html => { :method => :post} do |f| %>
+    <%= f.label "Applicant" %>
+    <%= f.text_field :user_id, value: @adoption.user.name%>    
+    <br>        
     <%= f.label :animal_id %>
     <%= f.text_field :animal_id, value: @adoption.animal.name %>
-    <br><br>
-    <%= f.label :user_id %>
-    <%= f.collection_select(:user_id, User.all, :id, :name) %>
+    <br>
     <br>
     <%= f.label :reason %>
     <%= f.text_area :reason %>
-    <br><br>
-    <%= f.submit "Edit My Adoption" %>
+    <br>
+
+    <form action="/adoptions_approve/<%= @adoption.id %>" method="POST"> <!--try using route helper-->
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <select name='adoption[status]'>
+            <option value="Approved">Approved</option>
+            <option value="Denied">Denied</option>
+            <option value="Pending">Pending</option>
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+
+
+
+    
+    <br>
+    <%= f.submit "Edit This Adoption Application" %>
 <% end %>

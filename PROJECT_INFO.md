@@ -12,10 +12,15 @@
     X - if animal approved, have 
         conditional on show page     
         saying "lives happily with: "
-      - index shows all animals. sort 
+     X - index shows all animals. sort 
         animals by adoption status
       - build sessions for login 
         (password later)
       - styling
       - specs
     X - analytics page
+
+    Thursday, 4/17 To Do:
+        -animal can be created
+        -full CRUD for animal
+        -fix approval bug. Animal can only be approved once.

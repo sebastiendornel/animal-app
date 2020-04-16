@@ -1,0 +1,12 @@
+
+  <%= form_for @animal  do |t| %>
+  <%=  t.label :name %>
+  <%=  t.text_field :name %>
+  <%=  t.label :breed %>
+  <%=  t.text_field :breed%>
+  <%=  t.label :bio %>
+  <%=  t.text_field :bio%>
+  <%= t.label :age %>
+  <%= t.text_field :age %>
+  <%= t.submit %>
+  <% end %>
