@@ -10,6 +10,12 @@
   </head>
 
   <body>
+      <nav>
+      <div><%= link_to "Home", '/' %></div>
+        <div><%= link_to "All Animals", animals_path %></div>
+        <div><%= link_to "All Users", users_path %></div>
+        <div><%= link_to "Adoptions", adoptions_path %></div>
+      </nav>
     <%= yield %>
   </body>
 </html>

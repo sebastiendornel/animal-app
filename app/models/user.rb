@@ -6,7 +6,7 @@ class User < ApplicationRecord
     validates :age, presence: true, numericality: true
     validates :address, presence: true, format: {with: /[a-zA-Z]/}
     validates :bio, presence: true, format: {with: /[a-zA-Z]/}, length: {minimum: 5}
-
+  
     def self.average_user_age
         a = self.all.pluck(:age)
         a.sum.to_f / a.length.to_f

@@ -2,9 +2,11 @@ class Adoption < ApplicationRecord
     belongs_to :user
     belongs_to :animal
 
-    validates :user_id, presence: true
+  
+
+    validates :user, presence: true#, uniqueness: {scope: animal}
     validates :reason, presence: true, format: {with: /[a-zA-Z]/}, length: {minimum: 5}
-    # validates :animal_id, uniqueness: {scope: :user}
+    validates :animal, uniqueness: {scope: :user} #prevents user from adopting same animal twice
 
     def self.pending
         # byebug

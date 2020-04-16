@@ -1,10 +1,11 @@
 <h1>Adoption Confirmation</h1>
 
-<h3>Thank you for applying to adopt <%= @adoption.animal.name %></h3>
+<h3>Thank you for applying to adopt <%= link_to @adoption.animal.name, animal_path(@adoption.animal) %></h3>
 <h3>Your reason for adopting a pet from our shelter: </h3>
 <%= @adoption.reason %>
 <h3></h3> The adoption application status is: <%= @adoption.status %></h3>
 <br>
+<%= render partial: "shared/errors", locals: {new_object: @adoption} %>
 <br>
 <%= link_to "View all Animals", animals_path %>
 <br>
@@ -23,4 +24,4 @@ For employees:
         <input type="submit" value="Submit">
     </form>
   
-
+<%= link_to "View All Adoptions", adoptions_path %> 
