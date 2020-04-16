@@ -1,1 +1,15 @@
 <h1>Edit This Animal </h1>
+<br>
+    <%= form_for @animal do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.label :age %>
+    <%= f.text_field :age %>
+    <%= f.label :breed %>
+    <%= f.text_field :breed %>
+    <%= f.label :bio %>
+    <%= f.text_area :bio %>
+    <%= f.submit "Edit this Animal"%>
+<% end %>
+
+<%= link_to "Remove this Animal", animal_path(@animal), :method => :delete%>

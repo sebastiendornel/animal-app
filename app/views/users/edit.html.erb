@@ -1,4 +1,4 @@
-<h1>Edit Your Profile</h1>
+<h1>Edit Applicant Profile</h1>
 <br>
     <%= form_for @user do |f| %>
     <%= f.label :name %>
@@ -11,7 +11,7 @@
     <%= f.select :pet_qty, (0..5) %>
     <%= f.label :bio %>
     <%= f.text_area :bio %>
-    <%= f.submit "Edit User"%>
+    <%= f.submit "Edit Applicant"%>
 <% end %>
 
 

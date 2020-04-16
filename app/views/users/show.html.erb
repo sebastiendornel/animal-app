@@ -1,4 +1,4 @@
-<h1>Your Profile</h1>
+<h1>Applicant Profile</h1>
 
 
 Name: <%= @user.name %><br>
@@ -9,5 +9,5 @@ Number of pets: <%= @user.pet_qty %><br>
 Bio: <%= @user.bio %>
 <br>
 <br>
-<%= link_to "Edit Your Profile", edit_user_path(@user) %> - 
-<%= link_to "Delete Your Profile", user_path(@user), :method => :delete, data: {confirm: "Are you sure?"} %>
+<%= link_to "Edit Applicant Profile", edit_user_path(@user) %> - 
+<%= link_to "Delete Applicant Profile", user_path(@user), :method => :delete, data: {confirm: "Are you sure?"} %>

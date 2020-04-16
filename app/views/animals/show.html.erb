@@ -10,7 +10,9 @@
           <% owner = @animal.adoptions.where(status: "Approved").pluck(:user_id).join().to_i %>
           <%= User.find(owner).name %>
      <% else %>
-          <%= link_to "Adopt this Animal", new_animal_adoption_path(@animal)  %>
+          <%= link_to "Fill Out Adoption Form", new_animal_adoption_path(@animal)  %>
+          <%= link_to "Edit This Animal's Information", edit_animal_path(@animal) %>
      <% end %>
 
-   
+   <br><br>
+<%= link_to "Remove this Animal", animal_path(@animal), :method => :delete%>

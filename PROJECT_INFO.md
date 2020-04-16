@@ -24,3 +24,11 @@
         -animal can be created
         -full CRUD for animal
         -fix approval bug. Animal can only be approved once.
+
+
+        TO DO
+        make sure we have the right links on each page
+        hide edit page for adoptions
+        login
+        add images/styling
+        fix seed data later
