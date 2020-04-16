@@ -1,15 +1,12 @@
 <h1>All Adoption Applications</h1>
 
 
-<ul><% @sorted_dogs.each do |adoption| %>
+<% @sorted_dogs.each do |adoption| %>
   
-   
-   <li><%= link_to "Application Number: #{adoption.id}", animal_adoption_path(adoption.animal, adoption) %> - 
-   <%= link_to adoption.animal.name, animal_path(adoption.animal) %> - <%= link_to adoption.user.name, user_path(adoption.user) %> - <%= adoption.status %></li>
-</ul>
-<br>
-<br>
-
+   <ul> 
+      <li><%= link_to "Application Number: #{adoption.id}", animal_adoption_path(adoption.animal, adoption) %> - 
+      <%= link_to adoption.animal.name, animal_path(adoption.animal) %> - <%= link_to adoption.user.name, user_path(adoption.user) %> - <%= adoption.status %></li>
+   </ul>
    <% end %>
 <%= link_to "All Animals", animals_path %>
 <%= link_to "All Applicants", users_path %>

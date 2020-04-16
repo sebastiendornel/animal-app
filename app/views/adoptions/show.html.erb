@@ -2,7 +2,7 @@
 <br>
 <h3>Adoption Applicant: <%= link_to @adoption.user.name, user_path(@adoption.user)  %></h3>
 
-<h3>Applicant Reason for Adopting <%= link_to @adoption.animal.name%>: </h3>
+<h3>Applicant Reason for Adopting <%= link_to @adoption.animal.name, animal_path(@adoption.animal)%>: </h3>
 <p><%= @adoption.reason %></p>
 <h3> This adoption application status is: <%= @adoption.status %></h3>
 <%= render partial: "shared/errors", locals: {new_object: @adoption} %>
