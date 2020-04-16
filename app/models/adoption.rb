@@ -8,7 +8,7 @@ class Adoption < ApplicationRecord
     # validates :adoption, uniqueness: {scope: :animal}
     # validates :status, uniqueness: (status == "Approved")
     validates :reason, presence: true, format: {with: /[a-zA-Z]/}, length: {minimum: 5}
-    validates :animal, uniqueness: {scope: :user} #prevents user from adopting same animal twice
+    validates :animal, uniqueness: {scope: :user, message: "already has pending adoption by this user"} #prevents user from adopting same animal twice
 
 
     def status_validation
