@@ -10,4 +10,17 @@
 <br>
 For visitors: <%= link_to "Cancel your adoption process", animal_adoption_path(@adoption.animal, @adoption), :method => :delete, data: {confirm: "Are you sure?"} %>
 <br>
+For employees:
+
+
+    <form action="/adoptions_approve/<%= @adoption.id %>" method="POST">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <select name='adoption[status]'>
+            <option value="Approved">Approved</option>
+            <option value="Denied">Denied</option>
+            
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+  
 

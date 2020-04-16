@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   resources :users
   get '/adoptions', to: 'adoptions#index'
+  post '/adoptions_approve/:id', to: 'adoptions#approve'
+  post '/adoptions_approve/:id', to: 'adoptions#reject'
   resources :animals do
-      resources :adoptions
+    resources :adoptions
   end
   resources :shelters, only: [:index]#, :analytics]
   get '/shelters/analytics', to: 'shelters#analytics'

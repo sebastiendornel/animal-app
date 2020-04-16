@@ -1,4 +1,5 @@
 class AdoptionsController < ApplicationController
+    helper_method :approve
 
     def index
         @adoptions = Adoption.all
@@ -46,6 +47,13 @@ class AdoptionsController < ApplicationController
         redirect_to shelters_path
     end
 
-    
+    def approve
+        @adoption = Adoption.find(params[:id])
+        @adoption.status = params[:adoption][:status]
+        @adoption.save
+        redirect_to adoptions_path
+    end
+
+
     
 end
