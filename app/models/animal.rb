@@ -19,6 +19,10 @@ class Animal < ApplicationRecord
         self.all.select{|a| a.adopted == true}
     end
 
+    def self.after_12
+        self.all.select{|a| a.id > 12}
+    end
+
     def set_others_to_denied
         # if self.adopted == true
         # need to be able to save to database

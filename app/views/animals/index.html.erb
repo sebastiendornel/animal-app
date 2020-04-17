@@ -1,4 +1,4 @@
-<h1 class="title is-size-1">All our Animals</h1>
+<h1 class="title is-size-1">All Available Dogs</h1>
 
 <br>
 <br>
@@ -33,7 +33,15 @@
   <% end %>
 </div>
 
-<h2>Animals Happily Adopted</h2>
+<h2 class="title is-size-4">Incoming Dogs</h2>
+<ul>
+    <% Animal.after_12.each do |animal| %>
+    <li>Name: <%=link_to animal.name, animal_path(animal) %> - Breed: <%= animal.breed %> - Bio: <%= animal.bio %> - Age: <%= animal.age %></li>
+
+    <% end %>
+</ul>
+<br>
+<h2 class="title is-size-4">Happily Adopted Dogs</h2>
 <ul>
     <% Animal.adopted.each do |animal| %>
     <li>Name: <%=link_to animal.name, animal_path(animal) %> - Breed: <%= animal.breed %> - Bio: <%= animal.bio %> - Age: <%= animal.age %></li>

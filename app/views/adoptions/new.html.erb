@@ -5,10 +5,10 @@
     <br>
     <%= f.label "Applicant" %>
     <%= f.collection_select(:user_id, User.all, :id, :name) %>
-    <br>
+    <br><br>
     <%= f.label "Animal to Adopt:" %>
     <%= @animal.name %>
-    <br>
+    <br><br>
     <%= f.label :reason %>
     <%= f.text_area :reason %>
     <br><br>
