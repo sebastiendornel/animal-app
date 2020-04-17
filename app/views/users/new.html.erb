@@ -13,6 +13,7 @@
 <%= f.select :pet_qty, (0..5) %>
 <%= f.label :bio %>
 <%= f.text_area :bio %>
+<%= f.hidden_field :password, :value => "password"%>
 <%= f.submit "Add Applicant"%>
 <% end %>
 

@@ -16,21 +16,21 @@ Adoption.destroy_all
 #     validates :bio, presence: true, format: {with: /[a-zA-Z]/}, length: {minimum: 5}
 #     validates :password, presence: true
 
-
-
-
-u1 = User.create(name: 'Carla', age: 23, address: "Burke, Virginia", pet_qty:3 , bio: "I found a bunch of kittens",  password_digest: BCrypt::Password.create('password'))
-u2 = User.create(name: 'Sebastien', age: 18, address: "DC", pet_qty: 3 , bio: "Adventurer", password_digest: BCrypt::Password.create('password'))
-u3 = User.create(name: 'Mary', age: 22, address: "Washington, DC",  password_digest: BCrypt::Password.create('password'))
+carla = User.create(name: 'Carla', age: 23, address: "Burke, Virginia", pet_qty:3 , bio: "I found a bunch of kittens",  password_digest: BCrypt::Password.create('password'))
+sebastien = User.create(name: 'Sebastien', age: 18, address: "DC", pet_qty: 3 , bio: "Adventurer", password_digest: BCrypt::Password.create('password'))
+mary = User.create(name: 'Mary', age: 22, address: "Washington, DC",  password_digest: BCrypt::Password.create('password'))
 admin = User.create(name: "Admin", age: 30, address: "Website", admin: true, password_digest: BCrypt::Password.create('password'))
 
-shelter1 = Shelter.create
+15.times {User.create(name: Faker::FunnyName.two_word_name, age: [1..40].sample, address: "Washington, DC",  password_digest: BCrypt::Password.create('password'))}
 
-a1 = Animal.create(name: 'Lucy', breed: 'Chihuahua', bio: 'Found as a baby', age: 3, shelter: shelter1)
-a2 = Animal.create(name: 'Sparky', breed: 'Pincher', bio: 'Last Owner Passed Away', age: 7, shelter: shelter1)
-a3 = Animal.create(name: 'Luna', breed: 'Maltese', bio: 'Found on the Street', age: 4 , shelter: shelter1)
-a4 = Animal.create(name: 'Fido', breed: 'Italian', bio: 'Kept waiting for his owner', age: 8 , shelter: shelter1)
+shelter = Shelter.create
 
+lucy = Animal.create(name: 'Lucy', breed: 'Chihuahua', bio: 'Found as a baby', age: 3, shelter: shelter)
+sparky = Animal.create(name: 'Sparky', breed: 'Pincher', bio: 'Last Owner Passed Away', age: 7, shelter: shelter)
+luna = Animal.create(name: 'Luna', breed: 'Maltese', bio: 'Found on the Street', age: 4 , shelter: shelter)
+fido = Animal.create(name: 'Fido', breed: 'Greyhound', bio: 'Kept waiting for his owner', age: 8 , shelter: shelter)
+
+15.times {Animal.create(name: Faker::Creature::Dog.name, breed: Faker::Creature::Dog.breed, bio: Faker::Creature::Dog.meme_phrase, age: 3, shelter: shelter)}
 
 
 
