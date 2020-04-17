@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+#logged_in{
+    width: 100%;
+    background: lightblue;
+    text-align: right;
+    padding-right: 48px;
+    font-weight:500;
+}

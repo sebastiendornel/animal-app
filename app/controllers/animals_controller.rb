@@ -2,6 +2,10 @@ class AnimalsController < ApplicationController
 
     def index
         @animals = Animal.all
+        @first_four = Animal.take(4)
+        @next_four = Animal.find([5,6,7,8])
+        @third_four = Animal.find([9,10,11,12])
+        @last_four = Animal.find(13)
     end
 
     def show

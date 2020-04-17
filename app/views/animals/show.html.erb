@@ -1,22 +1,32 @@
-<h1>About <%= @animal.name %></h1>
-   
-     <ul>
-        <li><h3>Breed: <%= @animal.breed%></h3></li>
-         <li><h3>Age: <%= @animal.age %></h3></li>
-         <li><h3>Bio: <%= @animal.bio %> </h3></li> 
-     </ul>
-     <% if @animal.adopted == true %>
-          <%= "Was adopted by:" %>
-          <% owner = @animal.adoptions.where(status: "Approved").pluck(:user_id).join().to_i %>
-          <%= User.find(owner).name %>
-     <% else %>
-     <ul>
-        <li><h3><%= "Pending Adoptions: #{@animal.adoptions.count}" %></h3></li>
-     </ul>
-          <br>
-          <%= link_to "Fill Out Adoption Form", new_animal_adoption_path(@animal) %>
-          <br>
-          <%= link_to "Edit This Animal's Information", edit_animal_path(@animal) %>
-     <% end %>
-   <br>
-<%= link_to "Remove this Animal", animal_path(@animal), :method => :delete %>  
+<div id="animal_container">
+<div class="columns is-mobile is-centered">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css" type="text/css" rel="stylesheet">
+
+<div class="columns is-mobile is-centered is-vcentered">
+  <div class="column">
+     <%= image_tag(@animal.img) %>
+  </div>
+  <div class="column">
+    <span class="title">About <%= @animal.name %></span><br>
+    <span class="subtitle">Breed: <%= @animal.breed%></span><br>
+    <span class="subtitle">Age: <%= @animal.age %></span><br>
+    <span class="subtitle">Bio: <%= @animal.bio%></span><br><br>
+          <% if @animal.adopted == true %>
+               <span class="subtitle"><%= "Was adopted by:" %></span>
+               <span class="subtitle"><% owner = @animal.adoptions.where(status: "Approved").pluck(:user_id).join().to_i %></span>
+               <span class="subtitle"><%= User.find(owner).name %></span>
+          <% else %>
+               <span class="subtitle">Pending Adoptions: <%= @animal.adoptions.count %></span><br><br>
+               <div id="animal_links">
+                    <span class="subtitle"><%= link_to "Fill Out Adoption Form", new_animal_adoption_path(@animal) %> </span><br>
+                    <span class="subtitle"><%= link_to "Edit This Animal's Information", edit_animal_path(@animal) %> </span><br>
+                    <% end %>
+                    <span class="subtitle"><%= link_to "Remove this Animal", animal_path(@animal), :method => :delete %> </span>
+               </div>     
+               </div>
+</div>
+             
+        
+
+</div>
+</div>

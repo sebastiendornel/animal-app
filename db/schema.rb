@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_15_022248) do
+ActiveRecord::Schema.define(version: 2020_04_17_140728) do
 
   create_table "adoptions", force: :cascade do |t|
     t.integer "animal_id"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2020_04_15_022248) do
     t.boolean "adopted", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "img", default: "https://images.unsplash.com/photo-1583511655826-05700d52f4d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
   end
 
   create_table "shelters", force: :cascade do |t|
