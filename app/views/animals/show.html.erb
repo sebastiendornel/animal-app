@@ -15,6 +15,7 @@
                <span class="subtitle"><%= "Was adopted by:" %></span>
                <span class="subtitle"><% owner = @animal.adoptions.where(status: "Approved").pluck(:user_id).join().to_i %></span>
                <span class="subtitle"><%= User.find(owner).name %></span>
+               <br><br>
           <% else %>
                <span class="subtitle">Pending Adoptions: <%= @animal.adoptions.count %></span><br><br>
                <div id="animal_links">

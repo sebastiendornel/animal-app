@@ -1,8 +1,10 @@
 <h1>All Applicants</h1>
-
+<br>
 <% @users.each do |user| %>
     <ul>
         <li><%= link_to user.name, user_path(user) %> </li>
     </ul>
 <% end %>
+<br>
+<br>
 <%= link_to "Add New Applicant", new_user_path%> 

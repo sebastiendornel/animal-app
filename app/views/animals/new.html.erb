@@ -1,14 +1,35 @@
-<h1>Add Another Dog to Shelter</h1>
+<h1 class="title size-is4">Add Another Dog to Shelter</h1>
+
 
 <%= form_for @animal  do |t| %>
+<div class="field">
     <%=  t.label :name %>
-    <%=  t.text_field :name %>
+    <div class="control">
+        <%=  t.text_field :name %>
+    </div>
+</div>
+<div class="field">
     <%=  t.label :breed %>
-    <%=  t.text_field :breed%>
+    <div class="control">
+        <%=  t.text_field :breed%>
+    </div>
+</div>
+<div class="field">
     <%=  t.label :bio%>
-    <%=  t.text_field :bio%>
+    <div class="control">
+        <%=  t.text_field :bio%>
+    </div>
+</div>
+<div class="field">
     <%= t.label :age %>
-    <%= t.text_field :age %>
-    <%= t.submit %>
+    <div class="control">
+        <%= t.text_field :age %>
+    </div>
+</div>
+<div class="field">
+    <div class="control">
+        <%= t.submit %>
+    </div>
+</div>
+ 
 <% end %>
-

@@ -1,18 +1,28 @@
-<lh1>New Adoption Form</h1>
+<h1 class="title size-is4">New Adoption Form</h1>
 <br>
 <%= render partial: "shared/errors", locals: {new_object: @adoption} %>
+
+
+
+
 <%= form_for @adoption, :url => animal_adoptions_path, :html => { :method => :post} do |f| %>
-    <br>
-    <%= f.label "Applicant" %>
-    <%= f.collection_select(:user_id, User.all, :id, :name) %>
-    <br><br>
-    <%= f.label "Animal to Adopt:" %>
-    <%= @animal.name %>
-    <br><br>
-    <%= f.label :reason %>
-    <%= f.text_area :reason %>
-    <br><br>
-    <%= f.submit "Apply for Adoption" %>
-<% end %>
-
-
+<div class="field">
+    <label class="label">Applicant</label>
+    <div class="select">
+        <%= f.collection_select(:user_id, User.all, :id, :name) %>
+    </div>
+</div>
+<div class="field">
+    <label class="label">Animal to Adopt: <%= @animal.name %></label>
+</div>
+<div class="field">
+    <label class="label">Reason</label>
+    <div class="control">
+        <%= f.text_area :reason, class:"input"%>
+    </div>
+</div>
+<div class="control">
+    <%= f.submit "Apply for Adoption", class:"button is-primary" %>
+  </div>
+    
+  <% end %>
