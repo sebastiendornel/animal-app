@@ -11,11 +11,28 @@
 
   <body>
       <nav>
-      <div><%= link_to "Home", '/' %></div>
-        <div><%= link_to "All Animals", animals_path %></div>
-        <div><%= link_to "All Users", users_path %></div>
-        <div><%= link_to "Adoptions", adoptions_path %></div>
+          <div><%= link_to "Home", '/' %></div>
+          <div><%= link_to "All Animals", animals_path %></div>
+          <div><%= link_to "All Users", users_path %></div>
+          <div><%= link_to "All Adoptions", adoptions_path %></div>
+          <% if session[:user_id] %>
+          <%= link_to "Logout", logout_path%>  
+          <%end%>
       </nav>
+      <% if notice %>
+      <%= notice %>
+      <% end %>
+
+      <% if current_user %>
+        <h4>Logged In: <%= current_user.name %></h4>
+      <% else %>
+         <%= link_to "Log In", login_path %>
+      <%end%>
+
+
     <%= yield %>
+
+
+   
   </body>
 </html>

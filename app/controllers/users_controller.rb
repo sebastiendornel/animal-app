@@ -28,6 +28,8 @@ class UsersController < ApplicationController
             @user.save
             redirect_to user_path(@user)
         else
+            false
+                @user.errors.any?
             render :new
         end
     end
@@ -50,6 +52,6 @@ class UsersController < ApplicationController
 
     private
     def user_params
-        params.require(:user).permit(:name, :age, :address, :pet_qty, :bio)
+        params.require(:user).permit(:name, :age, :address, :pet_qty, :bio, :password)
     end
 end

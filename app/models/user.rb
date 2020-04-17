@@ -1,12 +1,15 @@
 class User < ApplicationRecord
+    has_secure_password
+
     has_many :adoptions, dependent: :destroy
-    has_many :animals, through: :adoptions
+    has_many :animals, through: :adoptions, dependent: :delete_all
 
     validates :name, presence: true, format: {with: /[a-zA-Z]/}
     validates :age, presence: true, numericality: true
     validates :address, presence: true, format: {with: /[a-zA-Z]/}
     validates :bio, presence: true, format: {with: /[a-zA-Z]/}, length: {minimum: 5}
-  
+
+    
     def self.average_user_age
         a = self.all.pluck(:age)
         a.sum.to_f / a.length.to_f
@@ -39,6 +42,7 @@ class User < ApplicationRecord
             return "The people with the most pet(s) are #{name} with #{pet_count} pets."
         end
     end
+
 
 end
 

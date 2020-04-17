@@ -22,5 +22,4 @@
 <% else %>
     <%= "You have already approved #{@adoption.user.name} to adopt #{@adoption.animal.name}." %>
 <br>
-    <%= link_to "Cancel this Adoption Application", animal_adoption_path(@adoption.animal, @adoption), :method => :delete, data: {confirm: "Are you sure?"} %>
-<% end %>
+   <% end %>

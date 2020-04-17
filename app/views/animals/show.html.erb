@@ -1,7 +1,5 @@
 <h1>About <%= @animal.name %></h1>
-     <% if @animal.adoptions.empty? == true %>
-     <%= "This application was deleted. Bye bye dog" %>
-     <% else %>
+   
      <ul>
         <li><h3>Breed: <%= @animal.breed%></h3></li>
          <li><h3>Age: <%= @animal.age %></h3></li>
@@ -22,4 +20,3 @@
      <% end %>
    <br>
 <%= link_to "Remove this Animal", animal_path(@animal), :method => :delete %>  
-<% end %>

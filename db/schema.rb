@@ -37,10 +37,12 @@ ActiveRecord::Schema.define(version: 2020_04_15_022248) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
+    t.string "password_digest"
     t.integer "age"
     t.string "address"
     t.integer "pet_qty", default: 0
     t.text "bio", default: "I love animals"
+    t.boolean "admin", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

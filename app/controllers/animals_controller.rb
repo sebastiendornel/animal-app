@@ -7,6 +7,7 @@ class AnimalsController < ApplicationController
     def show
         @animal = Animal.find(params[:id])
     end
+
     def edit
         @animal = Animal.find(params[:id])
     end
@@ -33,6 +34,7 @@ class AnimalsController < ApplicationController
         redirect_to animals_path
     end
 
+    
     private
 
     def animal_params
