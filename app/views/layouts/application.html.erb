@@ -28,6 +28,7 @@
               <%= link_to "All Animals", animals_path, class: "navbar-item" %>
               <%= link_to "All Users", users_path, class: "navbar-item" %>
               <%= link_to "All Adoptions", adoptions_path, class: "navbar-item" %>
+              <%= link_to "Analytics", shelters_analytics_path , class: "navbar-item"%>
               <% if session[:user_id] %>
                 <%= link_to "Logout", logout_path, class: "navbar-item" %> 
               <%end%> 

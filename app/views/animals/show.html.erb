@@ -17,12 +17,11 @@
                <span class="subtitle"><%= User.find(owner).name %></span>
                <br><br>
           <% else %>
-               <span class="subtitle">Pending Adoptions: <%= @animal.adoptions.count %></span><br><br>
+               <span class="subtitle">Number of Adoption Applications: <%= @animal.adoptions.count %></span><br><br>
                <div id="animal_links">
                     <span class="subtitle"><%= link_to "Fill Out Adoption Form", new_animal_adoption_path(@animal) %> </span><br>
                     <span class="subtitle"><%= link_to "Edit This Animal's Information", edit_animal_path(@animal) %> </span><br>
                     <% end %>
-                    <span class="subtitle"><%= link_to "Remove this Animal", animal_path(@animal), :method => :delete %> </span>
                </div>     
                </div>
 </div>

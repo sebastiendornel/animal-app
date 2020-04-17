@@ -20,6 +20,6 @@
         <input type="submit" value="Submit">
     </form>
 <% else %>
-    <%= "You have already approved #{@adoption.user.name} to adopt #{@adoption.animal.name}." %>
+    <%= "You have already approved an adoption for #{@adoption.animal.name}." %>
 <br>
    <% end %>
