@@ -8,9 +8,6 @@
 <%= render partial: "shared/errors", locals: {new_object: @adoption} %>
 <br>
 
-<br>
-
-<br>
 <% if @adoption.animal.adopted == false %>
     <form action="/adoptions_approve/<%= @adoption.id %>" method="POST"> <!--try using route helper-->
 

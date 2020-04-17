@@ -1,18 +1,25 @@
 <h1>About <%= @animal.name %></h1>
-
+     <% if @animal.adoptions.empty? == true %>
+     <%= "This application was deleted. Bye bye dog" %>
+     <% else %>
      <ul>
         <li><h3>Breed: <%= @animal.breed%></h3></li>
          <li><h3>Age: <%= @animal.age %></h3></li>
-         <li><h3>Bio: <%= @animal.bio %> </h3></li>        
+         <li><h3>Bio: <%= @animal.bio %> </h3></li> 
      </ul>
      <% if @animal.adopted == true %>
           <%= "Was adopted by:" %>
           <% owner = @animal.adoptions.where(status: "Approved").pluck(:user_id).join().to_i %>
           <%= User.find(owner).name %>
      <% else %>
-          <%= link_to "Fill Out Adoption Form", new_animal_adoption_path(@animal)  %>
+     <ul>
+        <li><h3><%= "Pending Adoptions: #{@animal.adoptions.count}" %></h3></li>
+     </ul>
+          <br>
+          <%= link_to "Fill Out Adoption Form", new_animal_adoption_path(@animal) %>
+          <br>
           <%= link_to "Edit This Animal's Information", edit_animal_path(@animal) %>
      <% end %>
-
-   <br><br>
-<%= link_to "Remove this Animal", animal_path(@animal), :method => :delete%>
+   <br>
+<%= link_to "Remove this Animal", animal_path(@animal), :method => :delete %>  
+<% end %>

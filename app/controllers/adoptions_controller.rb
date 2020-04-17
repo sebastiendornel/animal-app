@@ -4,12 +4,11 @@ class AdoptionsController < ApplicationController
     def index
         @adoptions = Adoption.all
         @sorted_status = @adoptions.order(:status)
-
+        
         @sorted_dogs = @adoptions.order(:animal_id)
         # @categories = Category.order(:name)
-
     end
-
+    
     def show
         @adoption = Adoption.find(params[:id])
     end
@@ -43,7 +42,6 @@ class AdoptionsController < ApplicationController
             redirect_to animal_adoption_path(@animal, @adoption)
         else
             # render :new
-            # puts "hiHIHIHIHIHIHIHIHIHIHIHIHIHHIHIHIHIHIHIHI"
             render :index
        end
     end

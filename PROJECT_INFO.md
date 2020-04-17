@@ -21,14 +21,14 @@
     X - analytics page
 
     Thursday, 4/17 To Do:
-        -animal can be created
-        -full CRUD for animal
-        -fix approval bug. Animal can only be approved once.
+       X -animal can be created
+       X -full CRUD for animal
+       X? -fix approval bug. Animal can only be approved once.
 
 
         TO DO
-        make sure we have the right links on each page
-        hide edit page for adoptions
+       X make sure we have the right links on each page
+       X hide edit page for adoptions
         login
         add images/styling
         fix seed data later

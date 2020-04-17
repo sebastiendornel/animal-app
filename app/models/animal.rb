@@ -1,5 +1,5 @@
 class Animal < ApplicationRecord
-    has_many :adoptions
+    has_many :adoptions, dependent: :destroy
     has_many :users, through: :adoptions
     belongs_to :shelter, optional: true
 

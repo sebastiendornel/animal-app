@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    has_many :adoptions
+    has_many :adoptions, dependent: :destroy
     has_many :animals, through: :adoptions
 
     validates :name, presence: true, format: {with: /[a-zA-Z]/}
