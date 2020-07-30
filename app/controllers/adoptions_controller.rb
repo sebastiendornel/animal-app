@@ -43,7 +43,6 @@ class AdoptionsController < ApplicationController
             redirect_to animal_adoption_path(@animal, @adoption)
         else
             # render :new
-            # puts "hiHIHIHIHIHIHIHIHIHIHIHIHIHHIHIHIHIHIHIHI"
             render :index
        end
     end
